@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html ng-app="fpApp" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Zynderia Product Detail Page</title>
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  <link rel="stylesheet" href="css/fullpage.min.css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/nanoscroller.css">
+  <link rel="stylesheet" href="css/custom.css" />
+</head>
+<body ng-controller="fpCtrl" ng-click="hideFilter($event)">
+  <div class="menu pt-2">
+    <div class="container-fluid px-4">
+      <div>
+        <div class="header">
+          <div class="br-item" ng-repeat="o in options.titleArr">
+            <a href class="nav-link p-0 d-inline-block">{{o}}</a>&nbsp;/&nbsp;
+          </div>
+          <a href class="p-0 d-inline-block nav-link position-relative" style="left:-5px;">{{options.currProperty.value}}</a>
+        </div>
+        <div class="pull-right right-icons">
+          <span>            
+            <i class="fa fa-bars"></i>
+          </span>
+          <span class="ml-2">            
+            <i class="fa fa-user"></i>
+          </span>
+        </div>
+      </div>
+      <div class="loc-ctn mt-2">
+        <div class="pull-down-ctn px-2" ng-mouseleave="options.showSelectOpts = false">
+          <div class="pull-down-selected" ng-click="viewSelectOpts()">
+            {{options.currLocation.value}} <i class="fa fa-angle-down"></i>
+          </div>
+          <div class="pull-down-opt-ctn" ng-show="options.showSelectOpts">
+            <div class="pull-down-opt py-2 px-2" ng-repeat="l in options.locations track by $index" ng-mouseenter="hoverOption(l)" ng-click="selectLocation(l)">
+              {{l.value}}
+            </div>
+            <div class="select-opt-preview" 
+                style="
+                  background:url({{options.previewImg}}) no-repeat center; 
+                  background-size: cover;
+                  background-color: #fff;
+                ">              
+            </div>
+          </div>
+        </div>
+        <!-- <select ng-options="l.value for l in options.locations" ng-model="options.currLocation" class="px-2"></select>  -->
+        at 
+        <a href class="p-0 d-inline-block nav-link position-relative" style="top:0.5px;">{{options.currProperty.value}}</a>
+      </div>
+      <div class="btn-ctn mt-4">
+        <div>
+          <a class="btn btn-success bookNowBtn" href ng-click="toggleBookNow()"><i class="fa fa-bookmark"></i>&nbsp;&nbsp;Book Now</a>
+        </div>
+        <div class="ml-2" data-menuanchor="info">
+          <a class="btn btn-skyblue" href>Info</a>
+        </div>
+        <div class="ml-2 btn-group" data-menuanchor="images">
+          <a class="btn btn-skyblue" href style="margin-right: -2px;">Images</a>
+          <a class="btn btn-skyblue" href ng-click="toggleThumbGallery()" style="width: 50px; margin-right: -2px;"><img src="img/thumb-new.png" ng-hide="options.showThumbnails" height="20" style="position: relative; top: -2px;"/><img src="img/arrows.png" ng-show="options.showThumbnails" height="20" style="position: relative; top: -2px; left:-2px;"/></a>
+          <a class="btn btn-skyblue filter-btn" href ng-click="options.showFilter = !options.showFilter">
+            <i class="fa fa-sliders" style="position: relative; top: -1px;"></i>
+            <div class="filter-close text-white" ng-show="options.currFilter!='all'" ng-click="filterImages('all', 0)">
+              <i class="fa fa-times"></i>
+            </div>
+          </a>
+        </div>
+        <div class="filter-ctn px-4 py-4" ng-show="options.showFilter" ng-mouseleave="options.showFilter = false">
+          <button class="mr-2 btn btn-light btn-sm" ng-click="filterImages('all', 0)" ng-class="{'btnActive' : options.currFilter == 'all'}">All Images</button>
+          <button class="mr-2 btn btn-light btn-sm">Interiors</button>
+          <button class="mr-2 btn btn-light btn-sm">Exteriors</button>
+          <button class="mr-2 btn btn-light btn-sm">Walls</button>
+          <button class="mr-2 btn btn-light btn-sm">Ceilings</button>
+          <button class="mr-2 btn btn-light btn-sm">Floors</button>
+          <button class="mr-2 btn btn-light btn-sm" ng-click="filterImages('stair', 0)" ng-class="{'btnActive' : options.currFilter == 'stair'}">Stairways</button>
+          <button class="mr-2 btn btn-light btn-sm">Bathrooms</button>
+          <button class="mr-2 btn btn-light btn-sm">Parking</button>
+        </div>
+        <div class="ml-2" data-menuanchor="3dvr">
+          <a class="btn btn-skyblue" href>3DVR</a>
+        </div>
+        <div class="ml-2" data-menuanchor="floorplan">
+          <a class="btn btn-skyblue" href>Floorplan</a>
+        </div>
+        <div class="ml-2" data-menuanchor="maps">
+          <a class="btn btn-skyblue" href>Maps</a>
+        </div> 
+        <div class="ml-2" data-menuanchor="services">
+          <a class="btn btn-skyblue" href>Services</a>
+        </div>
+        <div class="ml-2">
+          <a class="btn btn-light"><i class="fa fa-star"></i></a>
+          <a class="btn btn-light"><i class="fa fa-share-alt"></i></a>
+          <a class="btn btn-light"><i class="fa fa-download"></i></a>
+        </div>
+      </div>
+    </div>    
+  </div>
+
+  <div id="fullpage">
+    <div class="section" id="section0">
+      <div class="container-fluid h-100">
+        <div class="row main-ctn">
+          <div class="col-md-4 info-ctn h-100 nano">
+            <div class="px-4 pb-2 info-ctn-inner nano-content">
+              <h5>Location Type</h5>
+              <div class="row mt-4">     
+                <div class="col-1 text-center pr-0">
+                  <i class="fa fa-building"></i>  
+                </div>
+                <div class="col-11 info-hold"> 
+                  Event Space/Rooftop, Gallery/Museum, Industrial Land/Buildings, Office, Warehouse
+                </div>
+              </div>
+              <div class="row mt-4">     
+                <div class="col-1 text-center pr-0">
+                  <i class="fa fa-university"></i>  
+                </div>
+                <div class="col-11 info-hold">   
+                  Industrial
+                </div>
+              </div>
+              <p class="mt-4">
+                Industrial, open warehouse with offices and holding areas. Great space for building multiple fil/photo sets while allowing ample space for lighting, grip and holding.
+              </p>
+              <p class="mt-4">
+                Meat locker with metal walls makes for a great shooting location or holding area.
+              </p>
+              <a href="#">Show more</a>
+
+              <h5 class="mt-4">Features</h5>
+              <div class="row mt-4">     
+                <div class="col">
+                  Exposed Beams 
+                </div>
+                <div class="col">   
+                  Roller Garage Door
+                </div>
+              </div>
+              <div class="row mt-2">     
+                <div class="col">
+                  High Ceiling
+                </div>
+                <div class="col">   
+                  Steel Doors
+                </div>
+              </div>
+              <div class="row mt-2">     
+                <div class="col">
+                  Studio Space/Equipment
+                </div>
+                <div class="col">   
+                  Wood Doors
+                </div>
+              </div>
+              <div class="row mt-2">     
+                <div class="col">
+                  Storage/Bulk Warehouse
+                </div>
+                <div class="col">   
+                  Industrial Warehouse
+                </div>
+              </div>
+              <div class="row mt-2">     
+                <div class="col">
+                  Wood-Paneled Walls
+                </div>
+                <div class="col">   
+                  Tiled Walls
+                </div>
+              </div>
+              <div class="row mt-2">     
+                <div class="col">
+                  Exposed Beams 
+                </div>
+                <div class="col">
+                  Concrete Floor
+                </div>
+              </div>
+
+              <h5 class="mt-4">Permit Zone</h5>
+              <p class="high-text pl-4 pr-0 mt-4">Address most likely falls into the below permit zone. Please confirm with the host.</p>
+              <p class="pl-4 mt-4">
+                <div class="pl-4">                    
+                  <h5 >Los Angeles</h5>
+                  Film L.A.<br/>
+                  Phone: (213) 977-8600
+                </div>
+              </p>
+
+              <h5 class="mt-4">Parking</h5>
+              <div class="row mt-4">     
+                <div class="col">
+                  Private parking for 5 cars
+                </div>
+              </div>
+              <div class="row mt-2">     
+                <div class="col">
+                  Truck / motorhome on site parking: On property, Street                    
+                </div>
+              </div>
+              <div class="row mt-2">     
+                <div class="col">
+                  Available parking lot or parking structure nearby
+                </div>
+              </div>
+              <div class="row my-4">     
+                <div class="col">
+                </div>
+              </div>
+              <div class="row my-4">     
+                <div class="col">
+                </div>
+              </div>
+              <div class="row my-4">     
+                <div class="col">
+                </div>
+              </div>
+            </div>              
+          </div>
+          <div class="col-md-8 main-img-ctn">
+            <a href ng-click="goToImages()">
+              <div class="h-100 w-100" style="background-image:url('{{options.bgMain}}'); background-size: cover;     background-position: 50% 50%;"></div>
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="more-info-btn" ng-click="showMoreInfo()">
+              <h3>                
+                More Info<br/>
+                <i class="fa fa-chevron-down"></i>
+                <i class="fa fa-chevron-up"></i>
+              </h3>
+            </div>
+            <div class="cont-btn w-100 text-center">
+              <h3>
+                Continue to Images
+                <!-- <i class="fa fa-chevron-down"></i> -->
+              </h3>
+            </div>
+          </div>
+          <div class="col-md-8">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section1">
+      <!-- <span class="mt-4 mr-4 badge badge-light badge-pill" ng-show="options.showEscBtn" ng-click="toggleThumbGallery()">
+        <i class="fa fa-times"></i><br/>
+        <span class="pill-text">ESC</span>
+      </span> -->
+
+      <div class="container-fluid h-100">
+        <!-- Main Slider -->
+        <div class="slider slider1 pb-2 h-100">
+          <div class="slides-ctn">
+            <div class="img-wrap" ng-repeat="s in options.mainImg track by $index">
+              <i class="fa fa-expand fs-btn mt-2 mr-2" ng-click="showFullScreen(s, 0, options.mainImgFull)"></i>
+              <img ng-src="{{s.val}}"/>
+            </div>
+          </div>
+          <a href class="control_next base_arrows"><i class="fa fa-chevron-right"></i></a>
+          <a href class="control_prev base_arrows"><i class="fa fa-chevron-left"></i></a>
+        </div>
+
+        <!-- Full Screen from Main Slider -->
+        <div class="img-overlay-ctn h-100 w-100" ng-show="options.showImgMainFull">
+          <img class="spinner-img" src="img/spin.svg" />
+
+          <span class="mt-4 mr-4 badge badge-light badge-pill" ng-click="backToImagesMain()">
+            <i class="fa fa-times"></i><br/>
+            <span class="pill-text">ESC</span>
+          </span>   
+
+          <span class="mt-4 mr-4 badge badge-light badge-pill badge-thumb" ng-click="backToImagesMain(); toggleThumbGallery();">
+            <img src="img/thumb-new.png" height="50" /><br/>
+          </span>
+
+          <span class="mt-4 mr-4 badge badge-light badge-pill badge-filter" ng-click="options.showFilterFS = true">
+            <i class="fa fa-sliders"></i>
+            <div class="filter-close text-white" ng-show="options.currFilter!='all'" ng-click="filterImages('all', 0)">
+              <i class="fa fa-times"></i>
+            </div>
+            <div class="filter-ctn px-4 pb-2" ng-show="options.showFilterFS" ng-mouseleave="options.showFilterFS = false">
+              <button class="mr-2 btn btn-light btn-sm" ng-click="filterImages('all', 0)" ng-class="{'btnActive' : options.currFilter == 'all'}">All Images</button>
+              <button class="mr-2 btn btn-light btn-sm">Interiors</button><br/>
+              <button class="mr-2 btn btn-light btn-sm">Exteriors</button>
+              <button class="mr-2 btn btn-light btn-sm">Walls</button><br/>
+              <button class="mr-2 btn btn-light btn-sm">Ceilings</button>
+              <button class="mr-2 btn btn-light btn-sm">Floors</button><br/>
+              <button class="mr-2 btn btn-light btn-sm" ng-click="filterImages('stair', 0)" ng-class="{'btnActive' : options.currFilter == 'stair'}">Stairways</button>
+              <button class="mr-2 btn btn-light btn-sm">Bathrooms</button><br/>
+              <button class="mr-2 btn btn-light btn-sm">Parking</button>
+            </div>
+          </span>
+
+          <div class="fs-outer-ctn h-100 w-100 fs1">
+            <div class="h-100 w-100 fs-ctn" ng-repeat="i in options.mainImgFull track by $index" style="background-image:url('{{i.val}}'); 
+              background-size:contain;
+              background-repeat: no-repeat;
+              background-position: 50% 50%">              
+            </div>
+          </div>
+          <a href class="control_prev" style="z-index:2; top:40%;" ng-click="fullImgMove('left', options.mainImgFull, 0)"><i class="fa fa-chevron-left"></i></a>
+          <a href class="control_next" style="z-index:2; top:40%;" ng-click="fullImgMove('right', options.mainImgFull, 0)"><i class="fa fa-chevron-right"></i></a>
+        </div>
+
+        <!-- Thumbnail Images -->
+        <div class="py-2 thumb-ctn w-100" ng-show="options.showThumbnails">
+          <div class="row">            
+            <div class="col-md-3 col-sm-12 text-center mb-4" ng-repeat="i in options.thumbImg track by $index">
+              <a ng-click="showFullScreenThumb(i, 3, options.thumbImgFull)" class="d-block h-100">
+                <img class="img-fluid img-thumbnail" ng-src="{{i.val}}"/>
+              </a>
+            </div>            
+          </div>
+        </div>
+
+        <!-- Full Screen from Thumbnail Images -->
+        <div class="img-overlay-ctn h-100 w-100" ng-show="options.showImgFull">
+          <img class="spinner-img" src="img/spin.svg" />
+          
+          <span class="mt-4 mr-4 badge badge-light badge-pill" ng-click="backToGallery()">
+            <i class="fa fa-times"></i><br/>
+            <span class="pill-text">ESC</span>
+          </span>
+
+          <span class="mt-4 mr-4 badge badge-light badge-pill badge-filter badge-fil-thumb" ng-click="options.showFilterFS = true">
+            <i class="fa fa-sliders"></i>
+            <div class="filter-close text-white" ng-show="options.currFilter!='all'" ng-click="filterImages('all', 3)">
+              <i class="fa fa-times"></i>
+            </div>
+            <div class="filter-ctn px-4 pb-2" ng-show="options.showFilterFS" ng-mouseleave="options.showFilterFS = false">
+              <button class="mr-2 btn btn-light btn-sm" ng-click="filterImages('all', 3)" ng-class="{'btnActive' : options.currFilter == 'all'}">All Images</button>
+              <button class="mr-2 btn btn-light btn-sm">Interiors</button><br/>
+              <button class="mr-2 btn btn-light btn-sm">Exteriors</button>
+              <button class="mr-2 btn btn-light btn-sm">Walls</button><br/>
+              <button class="mr-2 btn btn-light btn-sm">Ceilings</button>
+              <button class="mr-2 btn btn-light btn-sm">Floors</button><br/>
+              <button class="mr-2 btn btn-light btn-sm" ng-click="filterImages('stair', 0)" ng-class="{'btnActive' : options.currFilter == 'stair'}">Stairways</button>
+              <button class="mr-2 btn btn-light btn-sm">Bathrooms</button><br/>
+              <button class="mr-2 btn btn-light btn-sm">Parking</button>
+            </div>
+          </span>
+
+          <div class="fs-outer-ctn h-100 w-100 fst1">
+            <div class="h-100 w-100 fs-ctn" ng-repeat="i in options.thumbImgFull track by $index" style="background-image:url('{{i.val}}'); 
+              background-size:contain;
+              background-repeat: no-repeat;
+              background-position: 50% 50%">              
+            </div>
+          </div>
+          <a href class="control_prev" style="z-index:2; top:40%;" ng-click="fullImgMove('left', options.thumbImgFull, 3)"><i class="fa fa-chevron-left"></i></a>
+          <a href class="control_next" style="z-index:2; top:40%;" ng-click="fullImgMove('right', options.thumbImgFull, 3)"><i class="fa fa-chevron-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section2">
+      <div class="ifr-outer">        
+        <div class="ifr-inner">
+          <div class="ins-ctn mx-auto p-3 text-center">
+            <h4 class="mb-2">Click here to access 3DVR</h4>
+            <p class="note">NOTE: Mouse wheel and arrow key navigation to other sections will be disabled while in 3DVR section.</p>
+            <p class="ins-img">
+              <img src="img/ins-img.png" />
+            </p>
+            <p>Use the Tab Menu to navigate out of 3DVR</p>
+            <form class="form-inline">
+              <div class="col-auto">
+                <div class="custom-control custom-checkbox mr-sm-2">
+                  <input type="checkbox" ng-model="options.showIns" class="custom-control-input" id="customControlAutosizing">
+                  <label class="custom-control-label" for="customControlAutosizing">Don't show this again</label>
+                </div>                  
+              </div>
+              <div class="col text-right">                  
+                <button type="submit" ng-click="showIframe()" class="btn btn-skyblue btn-sm">Access 3DVR!</button>
+              </div>
+            </form>
+          </div>
+          <div class="ins-ptr mx-auto text-center">
+            <img src="img/arr-up.png" />
+          </div>
+        </div>
+      </div>
+      <div class="ifr-ctn">
+        <iframe src="https://my.matterport.com/show/?m=FVaTx6cLg7N&amp;brand=0" frameborder="0" allowfullscreen="" allow="vr"></iframe>
+      </div>
+      <!-- <div class="container-fluid ifr-outer text-center h-100">
+        <div class="ifr-inner">          
+          <button class="btn btn-lg btn-info mb-4" ng-click="toggleIframe()">
+          </button>
+        </div>
+      </div>
+
+      <div class="img-overlay-ctn h-100 w-100" ng-show="options.showIframe">
+        <span class="mt-4 mr-4 badge badge-light badge-pill" ng-click="toggleIframe()">
+          <i class="fa fa-times"></i><br/>
+          <span class="pill-text">ESC</span>
+        </span> 
+      </div> -->
+    </div>
+
+    <div class="section fp-ctn" id="section3">
+      <div class="container-fluid h-100">            
+        <!-- Floorplan Main Slider -->
+        <div class="slider slider2 pb-2 h-100">
+          <div class="slides-ctn">
+            <div class="img-wrap" ng-repeat="s in options.fpImg track by $index">
+              <i class="fa fa-expand fs-btn mt-2 mr-2" ng-click="showFullScreen(s, 1, options.fpImgFull)"></i>
+              <img ng-src="{{s.val}}"/>
+            </div>
+          </div>
+          <a href class="control_next base_arrows"><i class="fa fa-chevron-right"></i></a>
+          <a href class="control_prev base_arrows"><i class="fa fa-chevron-left"></i></a>
+        </div>
+
+        <!-- Floorplan Full Screen -->
+        <div class="img-overlay-ctn h-100 w-100" ng-show="options.showImgMainFull">
+          <span class="mt-4 mr-4 badge badge-light badge-pill" ng-click="backToImagesMain()">
+            <i class="fa fa-times"></i><br/>
+            <span class="pill-text">ESC</span>
+          </span>      
+          <div class="fs-outer-ctn h-100 w-100 fs2">
+            <div class="h-100 w-100 fs-ctn" ng-repeat="i in options.fpImgFull track by $index" style="background-image:url('{{i.val}}'); 
+              background-size:contain;
+              background-repeat: no-repeat;
+              background-position: 50% 50%">              
+            </div>
+          </div>
+          <a href class="control_prev" style="z-index:2; top:40%;" ng-click="fullImgMove('left', options.fpImgFull, 1)"><i class="fa fa-chevron-left"></i></a>
+          <a href class="control_next" style="z-index:2; top:40%;" ng-click="fullImgMove('right', options.fpImgFull, 1)"><i class="fa fa-chevron-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section map-ctn" id="section4">
+      <div class="container-fluid h-100">            
+        <!-- Maps Main Slider -->
+        <div class="slider slider3 pb-2 h-100">
+          <div class="slides-ctn">
+            <div class="img-wrap" ng-repeat="s in options.mapImg track by $index">
+              <i class="fa fa-expand fs-btn mt-2 mr-2" ng-click="showFullScreen(s, 2, options.mapImgFull)"></i>
+              <img ng-src="{{s.val}}"/>
+            </div>
+          </div>
+          <a href class="control_next base_arrows"><i class="fa fa-chevron-right"></i></a>
+          <a href class="control_prev base_arrows"><i class="fa fa-chevron-left"></i></a>
+        </div>
+
+        <!-- Maps Full Screen -->
+        <div class="img-overlay-ctn h-100 w-100" ng-show="options.showImgMainFull">
+          <span class="mt-4 mr-4 badge badge-light badge-pill" ng-click="backToImagesMain()">
+            <i class="fa fa-times"></i><br/>
+            <span class="pill-text">ESC</span>
+          </span>          
+          <div class="fs-outer-ctn h-100 w-100 fs3">
+            <div class="h-100 w-100 fs-ctn" ng-repeat="i in options.mapImgFull track by $index" style="background-image:url('{{i.val}}'); 
+              background-size:contain;
+              background-repeat: no-repeat;
+              background-position: 50% 50%">              
+            </div>
+          </div>
+          <a href class="control_prev" style="z-index:2; top:40%;" ng-click="fullImgMove('left', options.mapImgFull, 2)"><i class="fa fa-chevron-left"></i></a>
+          <a href class="control_next" style="z-index:2; top:40%;" ng-click="fullImgMove('right', options.mapImgFull, 2)"><i class="fa fa-chevron-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section5">
+        <div class="container-fluid h-100">            
+          <h1>Services content here</h1>
+        </div>
+    </div>
+  </div>
+
+  <div id="book-now-ctn">
+    <div class="container-fluid h-100 py-2">      
+      <span class="badge badge-light badge-pill" ng-click="toggleBookNow()">
+        <i class="fa fa-times"></i><br/>
+        <span class="pill-text">ESC</span>
+      </span>
+      <div class="row h-100 justify-content-center align-items-center">
+        <form class="col-md-12 col-lg-8 enq-form">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" ng-model="options.bookNowForm.name" placeholder="Enter name">
+          </div>
+          <div class="form-group">
+            <label>Production Type</label>
+            <select class="form-control" ng-options="o for o in options.bookNowForm.prodType" ng-model="options.bookNowForm.prodTypeSel">
+              <option value="">-- Select an Option --</option>
+            </select>
+          </div>          
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Start Date</label>
+              <input type="date" ng-model="options.bookNowForm.from" class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+              <label>End Date</label>
+              <input type="date" ng-model="options.bookNowForm.to" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Cast, Crew & Guests</label>
+            <select class="form-control" ng-options="o for o in options.bookNowForm.noPeople" ng-model="options.bookNowForm.noPeopleSel">
+              <option value="">-- Select an Option --</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Day Length</label>
+            <select class="form-control" ng-options="o for o in options.bookNowForm.dayLength" ng-model="options.bookNowForm.dayLengthSel">
+              <option value="">-- Select an Option --</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <button type="button" ng-click="submitForm()" class="btn btn-success btn-lg btn-block mt-3">Submit Inquiry</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="loader" class="spinner h-100 w-100 bg-light">
+    <img src="img/spin-dark.svg" />    
+  </div> 
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/fullpage.min.js"></script>  
+  <script src="js/jquery.nanoscroller.min.js"></script>  
+  <script src="js/jquery.mousewheel.min.js"></script>  
+  <script src="js/jquery.touchSwipe.min.js"></script>  
+</body>
+</html>

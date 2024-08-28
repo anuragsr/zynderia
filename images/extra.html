@@ -1,0 +1,1020 @@
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/1.jpg" alt="Los Angeles">
+    </div>
+    <div class="carousel-item">
+      <img src="img/2.jpg" alt="Chicago">
+    </div>
+    <div class="carousel-item">
+      <img src="img/3.jpg" alt="New York">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+</div>
+
+
+      // console.log(e)
+      // var slideHeight = $('#slider img').height();
+      // var currSlide = $($('#slider img')[idx]);
+      // var slideContWidth = $('#slider').width();
+      // var slideWidth = currSlide.width();
+      // // var sliderUlWidth = slideCount * (slideWidth + 20);
+      // var sliderUlWidth = "100000px";
+      
+      // // console.log(slideContWidth, slideWidth)
+
+      // $('.slides-ctn').css({ 
+      //   width: sliderUlWidth
+      // });
+
+      // if(slideContWidth > slideWidth){
+      //   $('.slides-ctn').css({ 
+      //     left: (slideContWidth - slideWidth)/2
+      //   });
+      // }else{
+      //   $('.slides-ctn').css({ 
+      //     left: 0
+      //   });
+      // }
+    // $('#slider').css({ width: slideWidth, height: slideHeight });
+    
+    // $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+    
+    // $scope.options.mainImg.forEach(function(obj, i){
+    //   $($(".img-slide")[i]).css("left", i*obj.width + "px")
+    // })
+    // $('#checkbox').change(function(){
+    //   setInterval(function () {
+    //       moveRight();
+    //   }, 3000);
+    // });
+    // var currSlide = $($('#slider img')[idx]);
+    
+
+    // var sliderUlWidth = "100000px";
+    
+    // var slideWidth = $('#slider img').width();
+    // console.log(slideContWidth, slideWidth)
+
+    // console.log($('#slider img').width())
+    // console.log($('#slider img').height())
+    // console.log(slideContWidth)
+    // console.log(slideContHeight)
+    
+    // var idx = 0;
+    /* wokring*/
+        // var slideCount = $('#slider img').length;    
+        // var slideContWidth = $('#slider').width();
+        // var slideContHeight = $('#slider').height();
+
+        // $('#slider img').css({ 
+        //   height: slideContHeight+"px",
+        //   width: "auto"
+        // });
+
+        // var slideWidth = $('#slider img').width();    
+
+        // if(slideContWidth > slideWidth){
+        //   $('.slides-ctn').css({ 
+        //     left: (slideContWidth - slideWidth)/2
+        //   });
+        // }else{
+        //   $('#slider img').css({ 
+        //     width: slideContWidth+ "px",
+        //     height: "auto"
+        //   });
+        //   slideWidth = $('#slider img').width();
+        //   $('.slides-ctn').css({ 
+        //     left: 0
+        //   });
+        // }
+
+        // var sliderUlWidth = slideCount * (slideWidth + 20);    
+        // $('.slides-ctn').css({ 
+        //   width: sliderUlWidth
+        // });
+    /* wokring end*/
+
+    // if(slideContWidth > slideWidth){
+    // if(slideContWidth/slideContHeight > 1){
+    //   $('#slider img').css({ 
+    //     height: slideContHeight+"px",
+    //     width: "auto"
+    //   });
+    //   var slideWidth = $('#slider img').width();
+    //   $('.slides-ctn').css({ 
+    //     left: (slideContWidth - slideWidth)/2
+    //   });
+    // }else{
+    //   $('#slider img').css({ 
+    //     width: slideContWidth+ "px",
+    //     height: "auto"
+    //   });
+    //   var slideWidth = $('#slider img').width();
+    //   $('.slides-ctn').css({ 
+    //     left: 0,
+    //     top: "20%"
+    //   });
+    // }
+    
+    // $('#slider img:last-child').prependTo('#slider .slides-ctn');
+
+
+    // var slideCount = $('#slider img').length;
+    // $('#slider img').css({ 
+    //   height: "100%",
+    //   width: "auto"
+    // });
+
+
+
+        // $scope.$apply(function(){
+        //   var len = $scope.options.dispImg.length - 1;
+        //   var temp = $scope.options.dispImg[0];
+        //   $scope.options.dispImg[0] = $scope.options.dispImg[len];
+        //   $scope.options.dispImg[len] = temp;
+        //   //.slice(0, 3);
+        //   // delete $scope.options.thumbImg[0];
+        //   // $scope.options.dispImg = arr;
+        //   // console.log(arr)
+        // })
+          // idx++;
+          // $('#slider img:first-child').appendTo('.slides-ctn');
+          // $('.slides-ctn').css({
+          //   left: idx*(slideWidth+10) + (slideContWidth - slideWidth)/2
+          // });
+          // $('#slider .slides-ctn').css('left', '');
+
+
+    
+    // var len = $scope.options.dispImg.length - 1;
+    // $scope.options.dispImg[0] = $scope.options.dispImg[len];
+    // $scope.options.dispImg[len] = temp;
+
+
+    // console.log($scope.options.dispImg)
+    // $scope.$apply(function(){
+    //       //.slice(0, 3);
+    //       // delete $scope.options.thumbImg[0];
+    //       // $scope.options.dispImg = arr;
+    //       // console.log(arr)
+    //     })
+    // $('#slider .img-wrap:last-child').prependTo('.slides-ctn');  
+    // $('.slides-ctn').css({
+    //     left: 2*(slideWidth+10) + (slideContWidth - slideWidth)/2
+    // });
+
+    function moveRight() {
+      console.log($scope.options.dispImg[2])
+      // if(slideIdx >= $scope.options.dispImg.length){
+      //   slideIdx = 0;
+      // }else{
+      //   slideIdx++;
+      // }
+      // console.log($scope.options.dispImg[slideIdx])
+
+      // idx--;
+      // $('#slider .slides-ctn').animate({
+      //     left: idx*(slideWidth+10) + (slideContWidth - slideWidth)/2
+      // }, 500, function () {
+      //   $scope.$apply(function(){
+      //     leftShift();
+      //   });
+
+      //   idx++;
+      //   $('.slides-ctn').css({
+      //     left: idx*(slideWidth+10) + (slideContWidth - slideWidth)/2
+      //   });
+      // });
+    }
+        <!-- 
+        <a class="ml-2 btn btn-skyblue" ng-class="{'active':options.currSection == 1}" ng-click="options.currSection = 1; moveToSlide()">Info</a>
+        <div class="ml-2 btn-group">
+          <a class="btn btn-skyblue" ng-class="{'active':options.currSection == 2}" ng-click="options.currSection = 2; moveToSlide()">Images</a>
+          <a class="btn btn-skyblue" ng-class="{'active':options.currSection == 2}"><i class="fa fa-sliders"></i></a>
+        </div>
+        <a class="ml-2 btn btn-skyblue" ng-class="{'active':options.currSection == 3}" ng-click="options.currSection = 3; moveToSlide()">3DVR</a>
+        <a class="ml-2 btn btn-skyblue" ng-class="{'active':options.currSection == 4}" ng-click="options.currSection = 4; moveToSlide()">Floor Plans</a>
+        <a class="ml-2 btn btn-skyblue" ng-class="{'active':options.currSection == 5}" ng-click="options.currSection = 5; moveToSlide()">Maps</a>
+        <a class="ml-2 btn btn-skyblue" ng-class="{'active':options.currSection == 6}" ng-click="options.currSection = 6; moveToSlide()">Services</a>        
+      -->
+
+
+
+  // var jssor_1_options = {
+  //   $AutoPlay: 0,
+  //   $SlideWidth: 720,
+  //   $SlideSpacing: 5,
+  //   $ArrowNavigatorOptions: {
+  //     $Class: $JssorArrowNavigator$
+  //   },
+  //   $BulletNavigatorOptions: {
+  //     $Class: $JssorBulletNavigator$
+  //   }
+  // }
+
+  // var jssor_2_options = {
+  //   $AutoPlay: 0,
+  //   $SlideWidth: 720,
+  //   $SlideSpacing: 5,
+  //   $ArrowNavigatorOptions: {
+  //     $Class: $JssorArrowNavigator$
+  //   },
+  //   $BulletNavigatorOptions: {
+  //     $Class: $JssorBulletNavigator$
+  //   }
+  // }
+
+  // var jssor_3_options = {
+  //   $AutoPlay: 0,
+  //   $SlideWidth: 720,
+  //   $SlideSpacing: 5,
+  //   $ArrowNavigatorOptions: {
+  //     $Class: $JssorArrowNavigator$
+  //   },
+  //   $BulletNavigatorOptions: {
+  //     $Class: $JssorBulletNavigator$
+  //   }
+  // }
+
+  // var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+  // var jssor_2_slider = new $JssorSlider$("jssor_2", jssor_2_options);
+  // var jssor_3_slider = new $JssorSlider$("jssor_3", jssor_3_options);
+
+  // /*#region responsive code begin*/
+
+  // var MAX_WIDTH = $(".slider-ctn").width();
+
+  // function ScaleSlider() {
+  //     var containerElement = jssor_1_slider.$Elmt.parentNode;
+  //     var containerElement2 = jssor_2_slider.$Elmt.parentNode;
+  //     var containerElement3 = jssor_3_slider.$Elmt.parentNode;
+  //     var containerWidth = containerElement.clientWidth;
+  //     var containerWidth2 = containerElement2.clientWidth;
+  //     var containerWidth3 = containerElement3.clientWidth;
+
+  //     if (containerWidth) {
+
+  //         var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
+
+  //         jssor_1_slider.$ScaleWidth(expectedWidth);
+  //     }
+  //     else {
+  //         window.setTimeout(ScaleSlider, 30);
+  //     }
+
+  //     if (containerWidth2) {
+
+  //         var expectedWidth = Math.min(MAX_WIDTH || containerWidth2, containerWidth2);
+
+  //         jssor_2_slider.$ScaleWidth(expectedWidth);
+  //     }
+  //     else {
+  //         window.setTimeout(ScaleSlider, 30);
+  //     }
+
+  //     if (containerWidth3) {
+
+  //         var expectedWidth = Math.min(MAX_WIDTH || containerWidth3, containerWidth3);
+
+  //         jssor_3_slider.$ScaleWidth(expectedWidth);
+  //     }
+  //     else {
+  //         window.setTimeout(ScaleSlider, 30);
+  //     }
+  // }
+
+  // ScaleSlider();
+
+  // $Jssor$.$AddEvent(window, "load", ScaleSlider);
+  // $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+  // $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+
+
+  // proper resize code
+
+  window.addEventListener("resize", onResize, false);
+
+    var slideWidth;
+    var slideHeight;
+    var slideContWidth;
+    var slideContHeight;
+    var animating = false;
+
+    function onResize(e){
+      var sliderArr = [$(".slider1")];
+      setTimeout(function(){
+        slideContWidth = $('#slider').width();
+        slideContHeight = $('#slider').height();
+
+        $('#slider img').css({ 
+          height: slideContHeight,
+          width: "auto"
+        });
+
+        slideWidth = $($('#slider img')[1]).width();    
+        slideHeight = $($('#slider img')[1]).height();    
+
+        // console.log(slideContWidth , slideWidth)
+        // console.log(slideContHeight , slideHeight)
+        if(slideContWidth < slideWidth){
+          $('#slider img').css({ 
+            width: slideContWidth,
+            height: "auto"
+          });
+
+          slideWidth = $($('#slider img')[1]).width();
+          slideHeight = $($('#slider img')[1]).height();
+        }
+
+        var sliderUlWidth = 0;
+        $('#slider img').toArray().forEach(function(obj){
+          sliderUlWidth+= $(obj).width() + 20;
+        })
+
+        $('.slides-ctn').css({ 
+          width: sliderUlWidth
+        });
+
+        $('.slides-ctn').css({
+            left: slideContWidth/2 - (slideWidth/2 + 10 + $($('#slider img')[0]).width())
+        });
+
+        $('a.control_prev, a.control_next').css({
+            top: slideHeight/2 - $('a.control_prev').height()/2
+        });
+      }, 500)
+    }
+
+    function moveLeft() {
+      if(!animating){        
+        animating = true;
+        $scope.$apply(function(){
+          rightShift();
+        });
+        
+        slideWidth = $($('#slider img')[0]).width();
+        $('.slides-ctn').css({
+          left:parseInt($('.slides-ctn').css('left')) - slideWidth - 10
+        });
+        
+        slideWidth = $($('#slider img')[1]).width();
+        $('#slider .slides-ctn').animate({
+          left: slideContWidth/2 - (slideWidth/2 + 20 + $($('#slider img')[0]).width())        
+        }, 500, function () {
+          animating = false;
+        });    
+      }
+    }
+
+    function moveRight() {
+      if(!animating){
+        animating = true;        
+        slideWidth = $($('#slider img')[1]).width();
+        $('.slides-ctn').animate({
+          left:parseInt($('.slides-ctn').css('left')) - (slideWidth/2 + $($('#slider img')[2]).width()/2 + 10)
+        }, 500, function () {
+          $scope.$apply(function(){
+            leftShift();
+          });
+          var len = $('#slider img').length - 1;
+          slideWidth = $($('#slider img')[len]).width();
+          $('.slides-ctn').css({
+            left:parseInt($('.slides-ctn').css('left')) + slideWidth + 10
+          });
+          animating = false;
+        });
+      }   
+    }
+
+    $('a.control_prev').click(function () {
+        moveLeft();
+    });
+
+    $('a.control_next').click(function () {
+        moveRight();
+    });
+
+    onResize();
+
+
+
+
+        <div class="fp-ctn h-100 w-100">
+          <div id="jssor_2">
+            <!-- Loading Screen -->
+            <div data-u="loading" class="jssorl-009-spin">
+                <img style="" src="img/spin.svg" />
+            </div>
+            <div data-u="slides" class="slide-ctn">
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="0"></i>
+                <img data-u="image" src="img/zynderia-stage-g-floorplan-01.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="1"></i>
+                <img data-u="image" src="img/zynderia-stage-g-02.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="2"></i>
+                <img data-u="image" src="img/zynderia-stage-g-03.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="3"></i>
+                <img data-u="image" src="img/zynderia-stage-g-04.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="4"></i>
+                <img data-u="image" src="img/zynderia-stage-g-05.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="5"></i>
+                <img data-u="image" src="img/zynderia-stage-g-06.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="6"></i>
+                <img data-u="image" src="img/zynderia-stage-g-07.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="7"></i>
+                <img data-u="image" src="img/zynderia-stage-g-08.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="8"></i>
+                <img data-u="image" src="img/zynderia-stage-g-09.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="9"></i>
+                <img data-u="image" src="img/zynderia-stage-g-10.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="10"></i>
+                <img data-u="image" src="img/zynderia-stage-g-11.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="11"></i>
+                <img data-u="image" src="img/zynderia-stage-g-12.jpg" />
+              </div>
+            </div>
+            <!-- Arrow Navigator -->
+            <div data-u="arrowleft" class="jssora051" style="width:65px;height:65px;top:0px;left:35px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
+                <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    <polyline class="a" points="11040,1920 4960,8000 11040,14080 "></polyline>
+                </svg>
+            </div>
+            <div data-u="arrowright" class="jssora051" style="width:65px;height:65px;top:0px;right:35px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+                <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
+                </svg>
+            </div>
+          </div>
+        </div>
+
+               <div class="map-ctn h-100 w-100">
+          <div id="jssor_3">
+            <!-- Loading Screen -->
+            <div data-u="loading" class="jssorl-009-spin">
+                <img style="" src="img/spin.svg" />
+            </div>
+            <div data-u="slides" class="slide-ctn">
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="0"></i>
+                <img data-u="image" src="img/map-01.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="1"></i>
+                <img data-u="image" src="img/map-02.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="2"></i>
+                <img data-u="image" src="img/zynderia-stage-g-03.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="3"></i>
+                <img data-u="image" src="img/zynderia-stage-g-04.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="4"></i>
+                <img data-u="image" src="img/zynderia-stage-g-05.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="5"></i>
+                <img data-u="image" src="img/zynderia-stage-g-06.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="6"></i>
+                <img data-u="image" src="img/zynderia-stage-g-07.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="7"></i>
+                <img data-u="image" src="img/zynderia-stage-g-08.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="8"></i>
+                <img data-u="image" src="img/zynderia-stage-g-09.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="9"></i>
+                <img data-u="image" src="img/zynderia-stage-g-10.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="10"></i>
+                <img data-u="image" src="img/zynderia-stage-g-11.jpg" />
+              </div>
+              <div>
+                <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="11"></i>
+                <img data-u="image" src="img/zynderia-stage-g-12.jpg" />
+              </div>
+            </div>
+            <!-- Arrow Navigator -->
+            <div data-u="arrowleft" class="jssora051" style="width:65px;height:65px;top:0px;left:35px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
+                <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    <polyline class="a" points="11040,1920 4960,8000 11040,14080 "></polyline>
+                </svg>
+            </div>
+            <div data-u="arrowright" class="jssora051" style="width:65px;height:65px;top:0px;right:35px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+                <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
+                </svg>
+            </div>
+          </div>
+        </div>
+
+
+
+    // var el = $(".fs-ctn")[0];
+    
+    // var el2 = $(".fs-ctn")[1];
+    // $(el2).css({
+    //   zIndex:1,
+    //   left:0
+    // })
+
+    // var el3 = $(".fs-ctn")[2];
+    // $(el3).css({
+    //   left: window.innerWidth,
+    //   zIndex:1
+    // })
+
+
+      // var el = $(".fs-ctn")[0];
+      // var el2 = $(".fs-ctn")[1];
+      // var el3 = $(".fs-ctn")[2];
+
+
+
+      // // $(el2).animate({
+      // //   left: 0//parseInt($(el2).css("left")) - window.innerWidth
+      // // }, 500)
+
+      // $(el3).animate({
+      //   left: 0
+      // }, 500, function(){
+      //   // setFullSlider();
+
+      //   // $scope.$apply(function(){
+      //   //   // rightShift(arr);
+      //   // })
+      // })
+
+      // $(".fs-outer-ctn").animate({
+      //   left: parseInt($(".fs-outer-ctn").css("left"))-window.innerWidth
+      // }, 500, function () {
+      //   $scope.$apply(function(){
+      //     // rightShift(arr);
+      //   });
+      //   setFullSlider();
+      //   // var len = parent.find('img').length - 1;
+      //   // slideWidth = $(parent.find('img')[len]).width();
+      //   // parent.find('.slides-ctn').css({
+      //   //   left:parseInt(parent.find('.slides-ctn').css('left')) + slideWidth + 10
+      //   // });
+      //   // animating = false;
+      // });
+      // rightShift(arr);
+
+
+      // leftShift(arr);
+      // var el = $(".fs-ctn")[0];
+      // var el2 = $(".fs-ctn")[1];
+      // // var el3 = $(".fs-ctn")[2];
+      
+      // $(el).animate({
+      //   left: 0
+      // }, 500, function(){
+      //   // setFullSlider();
+        
+      //   // $scope.$apply(function(){
+      //   //   // rightShift(arr);
+      //   // })
+      // })
+      
+      // $(el2).animate({
+      //   left: window.innerWidth
+      // }, 500)
+
+      // $(el2).animate({
+      //   left: 0//parseInt($(el2).css("left")) - window.innerWidth
+      // }, 500)
+
+      <!-- Main Slider -->
+        <!-- <div class="slider-ctn h-100 w-100" ng-hide="options.showThumbnails">
+          <div id="jssor_1">
+            <div data-u="loading" class="jssorl-009-spin">
+                <img style="" src="img/spin.svg" />
+            </div>
+            <div data-u="slides" class="slide-ctn">
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="0"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-01.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="1"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-02.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="2"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-03.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="3"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-04.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="4"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-05.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="5"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-06.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="6"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-07.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="7"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-08.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="8"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-09.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="9"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-10.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="10"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-11.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="11"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-12.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="12"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-13.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="13"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-14.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="14"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-15.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="15"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-16.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="16"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-17.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="17"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-18.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="18"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-19.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="19"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-20.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="20"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-21.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="21"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-22.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="22"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-23.jpg" />
+                </div>
+                <div>
+                  <i class="fa fa-expand fs-btn mt-2 mr-2" data-url="23"></i>
+                  <img data-u="image" src="img/zynderia-stage-g-24.jpg" />
+                </div>
+            </div>
+            <div data-u="arrowleft" class="jssora051" style="width:65px;height:65px;top:0px;left:35px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
+                <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    <polyline class="a" points="11040,1920 4960,8000 11040,14080 "></polyline>
+                </svg>
+            </div>
+            <div data-u="arrowright" class="jssora051" style="width:65px;height:65px;top:0px;right:35px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+                <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
+                </svg>
+            </div>
+          </div>
+        </div>    -->   
+
+
+          <!-- <div class="fs-outer-ctn h-100 w-100">
+            <flex-slider slide="s in options.thumbImgFull" animation="slide" control-nav="false">
+              <li>
+                <div style="height:100%; width:100%;
+                  background:red">{{s}}</div>
+              </li>
+            </flex-slider>
+          </div> -->
+
+
+
+ <!--        <div class="px-4 py-4 img-overlay-ctn h-100 w-100" ng-show="options.showImgMainFull">
+          <span class="mt-4 mr-4 badge badge-light badge-pill" ng-click="backToImagesMain()"><i class="fa fa-times"></i></span>
+          <img ng-src="{{options.fullImage}}" class="img-fluid"/>
+        </div> -->
+
+    <div class="section" id="section7">
+        <div class="container-fluid h-100 pb-2">            
+    <!--      <div id="slider" class="h-100">
+            <div class="slides-ctn h-100">
+              <div ng-repeat="i in options.mainImg track by $index" class="h-100 w-100 img-slide" style="background: url({{i.val}}) no-repeat; background-size: contain; background-position: 50% 0%;"
+              ></div>
+            </div>
+            <ul>
+              <li>                
+              </li>
+              <li>
+                <img src="img/zynderia-stage-g-02.jpg"/>
+              </li>
+            </ul>
+          </div>
+  -->
+        </div>
+    </div>
+  </div>
+
+        <!-- <div class="px-4 py-4 img-overlay-ctn h-100 w-100" ng-show="options.showImgMainFull">
+          <span class="mt-4 mr-4 badge badge-light badge-pill" ng-click="backToImagesMain()"><i class="fa fa-times"></i></span>
+          <img ng-src="{{options.fullImage}}" class="img-fluid"/>
+        </div> -->
+
+
+
+  // $(".fp-ctn i").on("click", function(e){
+  //   var idx = parseInt($(e.currentTarget).attr("data-url"))
+  //   $scope.$apply(function(){
+  //     $scope.options.showImgMainFull = true;
+  //     $scope.options.fullImage = $scope.options.fpImg[idx];
+  //     $("#fullpage").css({
+  //       zIndex:1
+  //     })
+  //   })
+  // })
+
+  // $(".map-ctn i").on("click", function(e){
+  //   var idx = parseInt($(e.currentTarget).attr("data-url"))
+  //   $scope.$apply(function(){
+  //     $scope.options.showImgMainFull = true;
+  //     $scope.options.fullImage = $scope.options.mapImg[idx];
+  //     $("#fullpage").css({
+  //       zIndex:1
+  //     })
+  //   })
+  // })
+
+
+    // switch(no){
+    //   case 1:
+        
+    //   break;
+
+    //   // case 2:
+    //   //   $(".fs2 .fs-ctn").css({      
+    //   //     zIndex:0,
+    //   //     left: -window.innerWidth
+    //   //   })
+        
+    //   //   el = $(".fs-ctn")[fullIdx];
+
+    //   //   if(fullIdx == 0){
+    //   //     elLeft = $(".fs-ctn")[$(".fs-ctn").length - 1];
+    //   //   }else{
+    //   //     elLeft = $(".fs-ctn")[fullIdx - 1];      
+    //   //   }
+
+    //   //   if(fullIdx == $(".fs-ctn").length - 1){
+    //   //     elRight = $(".fs-ctn")[0];       
+    //   //   }else{    
+    //   //     elRight = $(".fs-ctn")[fullIdx + 1];
+    //   //   }
+    //   // break;
+
+    //   // case 3:
+    //   //   $(".fs3 .fs-ctn").css({      
+    //   //     zIndex:0,
+    //   //     left: -window.innerWidth
+    //   //   })
+        
+    //   //   el = $(".fs-ctn")[fullIdx];
+
+    //   //   if(fullIdx == 0){
+    //   //     elLeft = $(".fs-ctn")[$(".fs-ctn").length - 1];
+    //   //   }else{
+    //   //     elLeft = $(".fs-ctn")[fullIdx - 1];      
+    //   //   }
+
+    //   //   if(fullIdx == $(".fs-ctn").length - 1){
+    //   //     elRight = $(".fs-ctn")[0];       
+    //   //   }else{    
+    //   //     elRight = $(".fs-ctn")[fullIdx + 1];
+    //   //   }
+    //   // break;
+    // }
+
+
+    // mainImg:[
+    //   {val:"img/zynderia-stage-g-01.jpg", height:1080, width: 1920},
+    //   {val:"img/zynderia-stage-g-02.jpg", height:1080, width: 1920},
+    //   {val:"img/zynderia-stage-g-03.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-04.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-05.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-06.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-07.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-08.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-09.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-10.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-11.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-12.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-13.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-14.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-15.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-16.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-17.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-18.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-19.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-20.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-21.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-22.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-23.jpg", height:1080, width: 1920},
+    //   // {val:"img/zynderia-stage-g-24.jpg", height:1080, width: 1920}
+    // ],
+
+    
+<!--         <div class="px-4 py-4 img-overlay-ctn h-100 w-100" ng-show="options.showImgFull">
+          <span class="mt-4 mr-4 badge badge-light badge-pill" ng-click="backToGallery()"><i class="fa fa-times"></i></span>
+          <img ng-src="{{options.fullImage}}" class="img-fluid"/>
+        </div> -->
+
+
+        // // Main Image Slider 
+      // slideContWidth = $('.slider1').width();
+      // slideContHeight = $('.slider1').height();
+
+      // $('.slider1 img').css({ 
+      //   height: slideContHeight,
+      //   width: "auto"
+      // });
+
+      // slideWidth = $($('.slider1 img')[1]).width();    
+      // slideHeight = $($('.slider1 img')[1]).height();    
+
+      // if(slideContWidth < slideWidth){
+      //   $('.slider1 img').css({ 
+      //     width: slideContWidth,
+      //     height: "auto"
+      //   });
+
+      //   slideWidth = $($('.slider1 img')[1]).width();
+      //   slideHeight = $($('.slider1 img')[1]).height();
+      // }
+
+      // var sliderUlWidth = 0;
+      // $('.slider1 img').toArray().forEach(function(obj){
+      //   sliderUlWidth+= $(obj).width() + 20;
+      // })
+
+      // $('.slider1 .slides-ctn').css({ 
+      //   width: 100000//sliderUlWidth
+      // });
+
+      // $('.slider1 .slides-ctn').css({
+      //     left: slideContWidth/2 - (slideWidth/2 + 10 + $($('.slider1 img')[0]).width())
+      // });
+
+      // $('.slider1 a.control_prev, .slider1 a.control_next').css({
+      //     top: slideHeight/2 - $('.slider1 a.control_prev').height()/2
+      // });
+
+      // // Floorplan Slider 
+      // slideContWidth = $('.slider2').width();
+      // slideContHeight = $('.slider2').height();
+
+      // $('.slider2 img').css({ 
+      //   height: slideContHeight,
+      //   width: "auto"
+      // });
+
+      // slideWidth = $($('.slider2 img')[1]).width();    
+      // slideHeight = $($('.slider2 img')[1]).height();    
+
+      // if(slideContWidth < slideWidth){
+      //   $('.slider2 img').css({ 
+      //     width: slideContWidth,
+      //     height: "auto"
+      //   });
+
+      //   slideWidth = $($('.slider2 img')[1]).width();
+      //   slideHeight = $($('.slider2 img')[1]).height();
+      // }
+
+      // sliderUlWidth = 0;
+      // $('.slider2 img').toArray().forEach(function(obj){
+      //   sliderUlWidth+= $(obj).width() + 20;
+      // })
+
+      // $('.slider2 .slides-ctn').css({ 
+      //   width: 100000//sliderUlWidth
+      // });
+
+      // $('.slider2 .slides-ctn').css({
+      //     left: slideContWidth/2 - (slideWidth/2 + 10 + $($('.slider2 img')[0]).width())
+      // });
+
+      // $('.slider2 a.control_prev, .slider2 a.control_next').css({
+      //     top: slideHeight/2 - $('.slider2 a.control_prev').height()/2
+      // });
+
+      // // Map Slider 
+      // slideContWidth = $('.slider3').width();
+      // slideContHeight = $('.slider3').height();
+
+      // $('.slider3 img').css({ 
+      //   height: slideContHeight,
+      //   width: "auto"
+      // });
+
+      // slideWidth = $($('.slider3 img')[1]).width();    
+      // slideHeight = $($('.slider3 img')[1]).height();    
+
+      // if(slideContWidth < slideWidth){
+      //   $('.slider3 img').css({ 
+      //     width: slideContWidth,
+      //     height: "auto"
+      //   });
+
+      //   slideWidth = $($('.slider3 img')[1]).width();
+      //   slideHeight = $($('.slider3 img')[1]).height();
+      // }
+
+      // sliderUlWidth = 0;
+      // $('.slider3 img').toArray().forEach(function(obj){
+      //   sliderUlWidth+= $(obj).width() + 20;
+      // })
+
+      // $('.slider3 .slides-ctn').css({ 
+      //   width: 100000//sliderUlWidth
+      // });
+
+      // $('.slider3 .slides-ctn').css({
+      //     left: slideContWidth/2 - (slideWidth/2 + 10 + $($('.slider3 img')[0]).width())
+      // });
+
+      // $('.slider3 a.control_prev, .slider3 a.control_next').css({
+      //     top: slideHeight/2 - $('.slider3 a.control_prev').height()/2
+      // });
